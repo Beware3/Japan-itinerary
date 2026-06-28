@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Japan Itinerary — Aug 29 – Sep 8, 2026</title>
+<meta name="description" content="A premium 10-day Japan travel itinerary covering Tokyo, Kyoto, Osaka, Nara, Mt. Fuji and Amanohashidate for a group of 4."/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#C8102E;--navy:#111827;--gold:#C9A84C;--sage:#5a7c5e;
+  --cream:#FDF6EC;--light:#F8F5F0;--muted:#7a6f5e;
+  --border:rgba(200,190,170,0.35);--card:rgba(255,252,248,0.92);--white:#ffffff;
+  --glass:rgba(255,255,255,0.12);--glass-border:rgba(255,255,255,0.18);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:0 8px 30px rgba(0,0,0,0.08);
+  --shadow-lg:0 16px 50px rgba(0,0,0,0.12);
+  --radius:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--light);color:var(--navy);line-height:1.6;min-height:100vh;overflow-x:hidden}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 20px rgba(200,16,46,0.15)}50%{box-shadow:0 0 35px rgba(200,16,46,0.3)}}
+.animate-on-scroll{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+
+/* HERO */
+.hero{
+  position:relative;min-height:85vh;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#111827;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('images/hero.png') center/cover no-repeat;
+  filter:brightness(0.45) saturate(1.2);
+  transform:scale(1.05);
+  transition:transform 8s ease;
+}
+.hero:hover .hero-bg{transform:scale(1.1)}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(17,24,39,0.3) 0%,rgba(17,24,39,0.6) 50%,rgba(17,24,39,0.95) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;
+  padding:2rem;max-width:700px;
+  animation:fadeUp 1.2s ease forwards;
+}
+.hero-jp{
+  font-family:'Noto Serif JP',serif;font-size:0.85rem;
+  color:rgba(255,255,255,0.35);letter-spacing:0.5em;margin-bottom:1rem;
+  text-transform:uppercase;
+}
+.hero-title{
+  font-family:'Noto Serif JP',serif;font-size:3.5rem;font-weight:700;
+  color:#fff;letter-spacing:0.04em;line-height:1.15;
+  text-shadow:0 4px 30px rgba(0,0,0,0.3);
+}
+.hero-title span{
+  background:linear-gradient(135deg,var(--gold),#e8c86e,var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-divider{
+  width:60px;height:3px;margin:1.2rem auto;border-radius:2px;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+}
+.hero-dates{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,16,46,0.85);backdrop-filter:blur(10px);
+  color:#fff;font-size:0.82rem;font-weight:500;
+  padding:8px 24px;border-radius:30px;margin-top:0.5rem;
+  letter-spacing:0.08em;
+  animation:pulseGlow 3s ease infinite;
+}
+.hero-meta{
+  color:rgba(255,255,255,0.5);font-size:0.78rem;margin-top:1rem;
+  letter-spacing:0.05em;
+}
+.hero-cities{
+  display:flex;justify-content:center;gap:10px;margin-top:1.2rem;flex-wrap:wrap;
+}
+.hero-city{
+  background:var(--glass);backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  color:rgba(255,255,255,0.8);font-size:0.72rem;font-weight:500;
+  padding:6px 16px;border-radius:20px;letter-spacing:0.05em;
+  transition:all 0.3s ease;cursor:default;
+}
+.hero-city:hover{
+  background:rgba(255,255,255,0.2);transform:translateY(-2px);
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:2;color:rgba(255,255,255,0.4);font-size:0.7rem;
+  letter-spacing:0.15em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:float 2.5s ease infinite;
+}
+.scroll-hint::after{
+  content:'';width:1px;height:30px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);
+}
+
+/* LAYOUT */
+.container{max-width:800px;margin:0 auto;padding:0 1.2rem}
+
+/* SECTION LABEL */
+.section-wrap{padding:3rem 1.2rem 1rem}
+.section-label{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.2em;
+  color:var(--red);text-transform:uppercase;
+  margin-bottom:1.5rem;display:flex;align-items:center;gap:12px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+
+/* QUICK STATS */
+.stats-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin-bottom:2.5rem;
+}
+.stat-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:1.2rem 1rem;text-align:center;
+  transition:all 0.3s ease;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.stat-num{font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1}
+.stat-num.accent{color:var(--red)}
+.stat-label{font-size:0.68rem;color:var(--muted);margin-top:4px;letter-spacing:0.04em}
+
+/* ROUTE MAP */
+.map-wrap{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;overflow:hidden;margin-bottom:2rem;
+  box-shadow:var(--shadow-sm);
+}
+.route-svg{width:100%;display:block}
+
+/* DAY CARDS */
+.days-grid{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem}
+.day-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  backdrop-filter:blur(10px);
+}
+.day-card:hover{
+  box-shadow:var(--shadow-lg);transform:translateY(-4px);
+  border-color:rgba(200,190,170,0.5);
+}
+
+/* Day card image */
+.day-image-wrap{
+  position:relative;width:100%;height:220px;overflow:hidden;
+}
+.day-image{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.day-card:hover .day-image{transform:scale(1.06)}
+.day-image-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(17,24,39,0.75) 100%);
+}
+.day-image-badge{
+  position:absolute;top:14px;left:14px;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.45);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:6px 14px;border-radius:30px;
+}
+.day-badge-num{
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.82rem;color:#fff;flex-shrink:0;
+}
+.day-badge-text{color:rgba(255,255,255,0.9);font-size:0.72rem;font-weight:500;letter-spacing:0.04em}
+.day-image-caption{
+  position:absolute;bottom:14px;left:14px;right:14px;
+}
+.day-image-caption h3{
+  font-size:1.15rem;font-weight:600;color:#fff;
+  text-shadow:0 2px 10px rgba(0,0,0,0.4);line-height:1.3;
+}
+.day-image-caption p{
+  font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;
+}
+
+/* City Tags */
+.city-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.city-tag{
+  font-size:0.65rem;font-weight:500;padding:3px 10px;
+  border-radius:12px;backdrop-filter:blur(4px);
+}
+.tag-tokyo{background:rgba(26,64,128,0.15);color:#1a4080;border:1px solid rgba(26,64,128,0.1)}
+.tag-kyoto{background:rgba(74,24,120,0.12);color:#4a1878;border:1px solid rgba(74,24,120,0.1)}
+.tag-osaka{background:rgba(136,32,16,0.12);color:#882010;border:1px solid rgba(136,32,16,0.1)}
+.tag-nara{background:rgba(26,82,40,0.12);color:#1a5228;border:1px solid rgba(26,82,40,0.1)}
+.tag-fuji{background:rgba(122,80,16,0.12);color:#7a5010;border:1px solid rgba(122,80,16,0.1)}
+.timing-note{
+  font-size:0.68rem;color:var(--sage);font-weight:500;
+  display:flex;align-items:center;gap:4px;
+}
+
+/* Day body */
+.day-body{padding:1.3rem 1.5rem}
+.activity-group{margin-bottom:1.1rem}
+.activity-group:last-child{margin-bottom:0}
+.group-label{
+  font-size:0.65rem;font-weight:600;letter-spacing:0.14em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:0.5rem;
+  display:flex;align-items:center;gap:6px;
+}
+.group-label-icon{font-size:0.9rem}
+.act-item{
+  font-size:0.82rem;color:var(--navy);
+  padding:5px 0 5px 18px;position:relative;line-height:1.5;
+}
+.act-item a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(17,24,39,0.2);transition:border-color 0.2s ease}
+.act-item a:hover{border-color:var(--red)}
+.act-item::before{
+  content:'';position:absolute;left:5px;top:12px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--red);opacity:0.6;
+}
+.act-item em{font-style:normal;color:var(--muted);font-size:0.75rem}
+.dist-row{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.72rem;color:var(--muted);
+  background:linear-gradient(135deg,var(--light),var(--cream));
+  border:1px solid var(--border);border-radius:12px;
+  padding:8px 14px;margin-top:12px;width:fit-content;
+}
+
+/* SUGGESTION BOX */
+.suggestion-wrap{margin-bottom:3rem}
+.sugg-card{
+  background:var(--white);border:2px dashed var(--border);
+  border-radius:var(--radius);padding:2rem;text-align:center;
+  transition:border-color 0.3s ease;
+}
+.sugg-card:hover{border-color:var(--gold)}
+.sugg-icon{font-size:2.2rem;margin-bottom:12px}
+.sugg-card h3{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.sugg-card > p{
+  font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem;
+  line-height:1.7;max-width:420px;margin-left:auto;margin-right:auto;
+}
+.sugg-list{text-align:left;margin-bottom:1.2rem}
+.sugg-item{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:12px;padding:0.8rem 1.1rem;margin-bottom:0.5rem;
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  transition:all 0.2s ease;
+}
+.sugg-item:hover{transform:translateX(4px);border-color:var(--gold)}
+.sugg-item-text{font-size:0.82rem;color:var(--navy);flex:1}
+.sugg-item-meta{font-size:0.7rem;color:var(--muted);flex-shrink:0}
+.input-area{display:flex;gap:8px}
+.input-area input{
+  flex:1;border:1.5px solid var(--border);border-radius:12px;
+  padding:0.7rem 1rem;font-size:0.82rem;font-family:'Inter',sans-serif;
+  outline:none;background:var(--light);color:var(--navy);
+  transition:all 0.3s ease;
+}
+.input-area input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(17,24,39,0.06)}
+.add-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:12px;
+  padding:0.7rem 1.4rem;font-size:0.82rem;font-weight:500;cursor:pointer;
+  font-family:'Inter',sans-serif;white-space:nowrap;
+  transition:all 0.3s ease;
+}
+.add-btn:hover{background:#253565;transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+
+/* FOOTER */
+.footer{
+  text-align:center;padding:2rem 1rem;
+  font-size:0.72rem;color:var(--muted);
+  border-top:1px solid var(--border);
+  background:var(--cream);
+}
+.footer-brand{
+  font-family:'Noto Serif JP',serif;font-size:1rem;
+  color:var(--navy);margin-bottom:4px;
+}
+
+/* BACK TO TOP */
+.back-top{
+  position:fixed;bottom:2rem;right:2rem;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--navy);color:#fff;border:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;
+  box-shadow:var(--shadow-md);
+  opacity:0;transform:translateY(10px);
+  transition:all 0.3s ease;z-index:100;
+}
+.back-top.show{opacity:1;transform:translateY(0)}
+.back-top:hover{background:var(--red);transform:translateY(-2px)}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero{min-height:75vh}
+  .hero-title{font-size:2.2rem}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .day-image-wrap{height:180px}
+  .day-body{padding:1rem 1.2rem}
+  .day-image-caption h3{font-size:1rem}
+}
+@media(max-width:400px){
+  .hero-title{font-size:1.8rem}
+  .hero-cities{gap:6px}
+  .day-image-wrap{height:150px}
+  .stats-bar{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-jp">日本旅行 二〇二六</div>
+    <h1 class="hero-title">Japan <span>🌸</span> Itinerary</h1>
+    <div class="hero-divider"></div>
+    <div class="hero-dates">✈  29 August – 8 September 2026</div>
+    <div class="hero-meta">Group of 5 · 10 Days · Washi-paper thin plans, bold adventures</div>
+    <div class="hero-cities">
+      <span class="hero-city">✈ Tokyo</span>
+      <span class="hero-city">⛩ Kyoto</span>
+      <span class="hero-city">🍜 Osaka</span>
+      <span class="hero-city">🦌 Nara</span>
+      <span class="hero-city">🗻 Mt. Fuji</span>
+      <span class="hero-city">🌊 Amanohashidate</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll to explore</div>
+</div>
+
+<div class="container">
+
+  <!-- QUICK STATS -->
+  <div class="section-wrap">
+    <div class="section-label">Trip Overview</div>
+    <div class="stats-bar">
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-num accent">10</div>
+        <div class="stat-label">Days</div>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Cities</div>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Travellers</div>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-num">~1,200</div>
+        <div class="stat-label">km covered</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROUTE MAP -->
+  <div class="section-wrap">
+    <div class="section-label">Route Map</div>
+    <div class="map-wrap animate-on-scroll">
+      <svg class="route-svg" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr-red" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#C8102E" opacity="0.75"/>
+          </marker>
+          <marker id="arr-gold" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#C9A84C" opacity="0.8"/>
+          </marker>
+          <marker id="arr-sage" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#5a7c5e" opacity="0.8"/>
+          </marker>
+          <marker id="arr-green" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#1a5228" opacity="0.8"/>
+          </marker>
+        </defs>
+        <rect width="700" height="260" fill="#FDF6EC" rx="12"/>
+        <text x="350" y="18" text-anchor="middle" font-size="9" fill="#c4b89a" font-family="Inter" letter-spacing="3" font-weight="500">JAPAN   日 本</text>
+        <!-- Tokyo -->
+        <circle cx="590" cy="90" r="34" fill="#1a2744"/>
+        <text x="590" y="85" text-anchor="middle" font-size="9.5" fill="#fff" font-family="Inter" font-weight="600" letter-spacing="0.5">TOKYO</text>
+        <text x="590" y="97" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Aug 30–Sep 2</text>
+        <text x="590" y="107" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Sep 5–8</text>
+        <!-- Kyoto -->
+        <circle cx="360" cy="120" r="30" fill="#4a1878"/>
+        <text x="360" y="115" text-anchor="middle" font-size="9.5" fill="#fff" font-family="Inter" font-weight="600" letter-spacing="0.5">KYOTO</text>
+        <text x="360" y="127" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Sep 1–5</text>
+        <!-- Osaka -->
+        <circle cx="200" cy="170" r="25" fill="#882010"/>
+        <text x="200" y="165" text-anchor="middle" font-size="9" fill="#fff" font-family="Inter" font-weight="600">OSAKA</text>
+        <text x="200" y="177" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Sep 2 (day)</text>
+        <!-- Nara -->
+        <circle cx="460" cy="185" r="22" fill="#1a5228"/>
+        <text x="460" y="181" text-anchor="middle" font-size="8.5" fill="#fff" font-family="Inter" font-weight="600">NARA</text>
+        <text x="460" y="191" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Sep 1 (day)</text>
+        <!-- Amanohashidate -->
+        <ellipse cx="108" cy="90" rx="46" ry="22" fill="#4a7050"/>
+        <text x="108" y="86" text-anchor="middle" font-size="7.5" fill="#fff" font-family="Inter" font-weight="600">AMANOHASHIDATE</text>
+        <text x="108" y="98" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.55)" font-family="Inter">Sep 5 (day)</text>
+        <!-- Mt Fuji -->
+        <polygon points="590,185 610,230 570,230" fill="#C9A84C" opacity="0.9"/>
+        <text x="590" y="218" text-anchor="middle" font-size="7.5" fill="#fff" font-family="Inter" font-weight="600">MT. FUJI</text>
+        <text x="590" y="240" text-anchor="middle" font-size="7" fill="#7a6f5e" font-family="Inter">Sep 7 (day)</text>
+        <!-- Routes -->
+        <path d="M 558,100 Q 475,70 390,112" stroke="#C8102E" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.65" marker-end="url(#arr-red)"/>
+        <text x="474" y="74" font-size="8" fill="#C8102E" font-family="Inter" text-anchor="middle" font-weight="500" opacity="0.9">Shinkansen ~2h15m · 450km</text>
+        <path d="M 332,130 Q 268,155 224,166" stroke="#C9A84C" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.75" marker-end="url(#arr-gold)"/>
+        <text x="274" y="143" font-size="7.5" fill="#C9A84C" font-family="Inter" text-anchor="middle" font-weight="500">~75km · 15min</text>
+        <path d="M 388,128 Q 422,155 441,178" stroke="#1a5228" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.7" marker-end="url(#arr-green)"/>
+        <text x="428" y="148" font-size="7.5" fill="#1a5228" font-family="Inter" text-anchor="middle" font-weight="500">~45km</text>
+        <path d="M 331,111 Q 230,85 153,88" stroke="#5a7c5e" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.7" marker-end="url(#arr-sage)"/>
+        <text x="242" y="80" font-size="7.5" fill="#5a7c5e" font-family="Inter" text-anchor="middle" font-weight="500">~100km · 2hr JR</text>
+        <path d="M 577,121 L 588,182" stroke="#C9A84C" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity="0.7" marker-end="url(#arr-gold)"/>
+        <text x="615" y="155" font-size="7.5" fill="#C9A84C" font-family="Inter" text-anchor="middle" font-weight="500">~120km</text>
+        <path d="M 390,108 Q 475,80 557,86" stroke="#1a2744" stroke-width="1" fill="none" stroke-dasharray="3,5" opacity="0.2" marker-end="url(#arr-red)"/>
+        <!-- Legend -->
+        <rect x="18" y="240" width="8" height="3" rx="1.5" fill="#C8102E" opacity="0.7"/>
+        <text x="30" y="246" font-size="7.5" fill="#7a6f5e" font-family="Inter">Shinkansen</text>
+        <rect x="100" y="240" width="8" height="3" rx="1.5" fill="#C9A84C" opacity="0.8"/>
+        <text x="112" y="246" font-size="7.5" fill="#7a6f5e" font-family="Inter">Day trip</text>
+        <rect x="165" y="240" width="8" height="3" rx="1.5" fill="#5a7c5e" opacity="0.8"/>
+        <text x="177" y="246" font-size="7.5" fill="#7a6f5e" font-family="Inter">Scenic excursion</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- DAYS -->
+  <div class="section-wrap">
+    <div class="section-label">Day-by-Day Itinerary</div>
+  </div>
+  <div class="days-grid">
+
+    <!-- Day 1 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/teamlab.png" alt="TeamLab Planets Tokyo — immersive digital art" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#1a2744">1</div>
+          <span class="day-badge-text">Day One</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Arrival in Tokyo – Digital Art & Old Lanes</h3>
+          <p>Sunday, 30 August 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-tokyo" style="background:rgba(26,64,128,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Tokyo</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🎨</span> Attractions</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=TeamLab+Planets+Tokyo" target="_blank">TeamLab Planets</a> — immersive digital art, book tickets in advance</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Tokyo" target="_blank">Memory Lane (Omoide Yokocho)</a> — lantern-lit alley of tiny izakayas</div>
+          <div class="act-item">Explore <a href="https://www.google.com/maps/search/?api=1&query=Shinjuku+Cat+Board+Tokyo" target="_blank">Shinjuku (Cat board area)</a></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">☕</span> Café</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Ruru+Cafe+Tokyo" target="_blank">Ruru Cafe</a></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Kyukyodo" target="_blank">Tokyo Kyukyodo</a> — premium Japanese stationery</div>
+        </div>
+        <div class="dist-row">🗺 Central Tokyo — most spots within 3–5 km of Shinjuku</div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/shibuya.png" alt="Shibuya Crossing Tokyo at night" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#1a2744">2</div>
+          <span class="day-badge-text">Day Two</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Shibuya, Harajuku & Vintage Marathon</h3>
+          <p>Monday, 31 August 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-tokyo" style="background:rgba(26,64,128,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Tokyo</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">⛩</span> Attractions</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Hachiko+Statue+Shibuya" target="_blank">Hachiko Statue</a> & <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Crossing+Sky+Deck" target="_blank">Shibuya Crossing Sky Deck</a></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Tokyo" target="_blank">Meiji Jingu</a> & <a href="https://www.google.com/maps/search/?api=1&query=Yoyogi+Park+Tokyo" target="_blank">Yoyogi Park</a> <em>(Hachiko Mini Bus)</em></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Wall+of+Sake+Barrels+Meiji+Jingu" target="_blank">Wall of Sake Barrels</a></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Takeshita+Street+Harajuku" target="_blank">Takeshita Street</a> — animal cafes & Harajuku street fashion</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🍜</span> Food</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Engine+Ramen+Tokyo" target="_blank">Engine Ramen</a> <em>(veg-friendly)</em></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Wagyu+Ramen+Tokyo" target="_blank">Wagyu Ramen</a> <em>(vegan option)</em></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Peak+Design+Tokyo" target="_blank">Peak Design</a> — camera accessories</div>
+          <div class="act-item">Vintage bags (Shibuya): <a href="https://www.google.com/maps/search/?api=1&query=Paradise+Vintage+Tokyo" target="_blank">Paradise Vintage</a> · <a href="https://www.google.com/maps/search/?api=1&query=Komehyo+Tokyo" target="_blank">Komehyo</a> · <a href="https://www.google.com/maps/search/?api=1&query=Amore+Vintage+Tokyo" target="_blank">Amore</a> · <a href="https://www.google.com/maps/search/?api=1&query=Vintage+QOO+Tokyo" target="_blank">QOO</a></div>
+          <div class="act-item">Ginza vintage: <a href="https://www.google.com/maps/search/?api=1&query=Brand+Off+Ginza" target="_blank">Brand Off</a> · <a href="https://www.google.com/maps/search/?api=1&query=2nd+Street+Ginza" target="_blank">2nd Street</a></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Yodobashi+Akiba+Tokyo" target="_blank">Yodobashi Akiba</a> — Japan's largest electronics store</div>
+        </div>
+        <div class="dist-row">🗺 Shibuya → Harajuku ~1.2 km walk · Ginza ~6 km by metro</div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/nara.png" alt="Todaiji Temple and deer in Nara" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#4a1878">3</div>
+          <span class="day-badge-text">Day Three</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Nara Day Trip — Great Buddha & Deer</h3>
+          <p>Tuesday, 1 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-kyoto" style="background:rgba(74,24,120,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Kyoto base</span>
+            <span class="city-tag tag-nara" style="background:rgba(26,82,40,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Nara day trip</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🦌</span> Nara Highlights</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple+Nara" target="_blank">Todaiji Temple</a> — iconic Great Buddha (built without nails)</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Isuien+Garden+Nara" target="_blank">Isuien Garden</a> & <a href="https://www.google.com/maps/search/?api=1&query=Yoshikien+Garden+Nara" target="_blank">Yoshikien Garden</a> — classic strolling gardens</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Starbucks+Nara+Park" target="_blank">Starbucks Nara</a> <em>(excellent view of the temple)</em></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Rokumei+Cafe+Nara" target="_blank">Rokumei Café</a> — celebrated 1970s café near Nara station, famous croissants & coffee</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🌿</span> Food & Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Mumokuteki+Kyoto" target="_blank">Mumokuteki</a> — vegan ramen + lifestyle shopping</div>
+        </div>
+        <div class="dist-row">🚃 Kyoto → Nara: Kintetsu Limited Express ~35 min · 45 km</div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/osaka.png" alt="Dotonbori Street Osaka at night" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#882010">4</div>
+          <span class="day-badge-text">Day Four</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Osaka Day Trip — Dotonbori & Vintage Watches</h3>
+          <p>Wednesday, 2 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-osaka" style="background:rgba(136,32,16,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Osaka</span>
+            <span class="timing-note" style="color:rgba(255,255,255,0.7)">🌅 Early morning start</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🌉</span> Attractions</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Street+Osaka" target="_blank">Dotonbori Street</a> & Water Bridge — Osaka's neon-lit food paradise</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">☕</span> Cafés & Dessert</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Marufuku+Coffee+Osaka" target="_blank">Marufuku Coffee</a> — historic specialty coffee</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Rikuro+Ojisan+no+Mise+Osaka" target="_blank">Rikuro's</a> — iconic jiggly Japanese cheesecake</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item">Vintage watches — ACCESS</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Topologie+LUCUA+1100+Osaka" target="_blank">Topologie (bags & carry gear)</a> — LUCUA 1100, 3-1-3 Umeda, 2F</div>
+        </div>
+        <div class="dist-row">🚃 Kyoto → Osaka: ~15 min shinkansen · 75 km</div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/bamboo.png" alt="Arashiyama Bamboo Grove Kyoto" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#4a1878">5</div>
+          <span class="day-badge-text">Day Five</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Arashiyama — Bamboo Grove & Hidden Temples</h3>
+          <p>Thursday, 3 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-kyoto" style="background:rgba(74,24,120,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Kyoto</span>
+            <span class="timing-note" style="color:rgba(255,255,255,0.7)">🌅 Early morning</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🎋</span> Nature & Temples</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Forest+Kyoto" target="_blank">Arashiyama Bamboo Forest</a> — iconic towering grove</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsuji+Temple+Kyoto" target="_blank">Otagi Nenbutsuji Temple</a> — 1,200 moss-covered Rakan statues <em>(Bus 94 or taxi, 2 km uphill)</em></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsuji+Temple+Kyoto" target="_blank">Adashino Nenbutsuji Temple</a> <em>(optional)</em> — 8,000 memorial Buddha stones + bamboo grove <em>(8 min walk)</em></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">☕</span> Coffee & Food</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Arabica+Kyoto+Arashiyama" target="_blank">%Arabica Arashiyama</a> — spectacular riverside location</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Engine+Ramen+Kyoto" target="_blank">Engine Ramen</a> <em>(veg-friendly)</em></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Topologie+Kyoto+Sanjo" target="_blank">Topologie Kyoto Sanjo</a> — CARO MASUNE 1F, 55 Benkeiishi-cho, Sanjo-Dori</div>
+        </div>
+        <div class="dist-row">🗺 Arashiyama ~12 km west of Kyoto centre · Sagano Line or bus</div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/inari.png" alt="Fushimi Inari thousand torii gates" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#4a1878">6</div>
+          <span class="day-badge-text">Day Six</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Fushimi Inari, Kiyomizu & Gion at Dusk</h3>
+          <p>Friday, 4 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-kyoto" style="background:rgba(74,24,120,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Kyoto</span>
+            <span class="timing-note" style="color:rgba(255,255,255,0.7)">🌅 Arrive Inari by 8am!</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">⛩</span> Must-Do</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto" target="_blank">Fushimi Inari Taisha</a> — 10,000 vermilion torii gates winding up the mountain</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto" target="_blank">Kiyomizu Temple</a> — three water streams, drink one for your chosen wish</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Ninnenzaka+Kyoto" target="_blank">Ninnenzaka</a> & <a href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto" target="_blank">Sannenzaka</a> — stone lanes with 100-year-old Starbucks in a machiya house</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Kodaiji+Temple+Kyoto" target="_blank">Kodaiji Temple</a>, bamboo forest section & museum</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Gion+District+Kyoto" target="_blank">Gion District</a> — Hanamikoji Street, best Geisha spotting 5:00–6:30 PM</div>
+        </div>
+        <div class="dist-row">🚌 Bus 207 from hotel (10–15 min) · Inari → Gion by JR train</div>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/amanohashidate.png" alt="Amanohashidate scenic sandbar view" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#4a7050">7</div>
+          <span class="day-badge-text">Day Seven</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Amanohashidate & Ine Boathouse Village</h3>
+          <p>Saturday, 5 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-kyoto" style="background:rgba(74,24,120,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Kyoto day trip</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🌊</span> Scenic Excursion</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Amanohashidate+Kyoto" target="_blank">Amanohashidate</a> — one of Japan's top 3 scenic views, a pine-lined sandbar across a lagoon</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Ine+no+Funaya+Kyoto" target="_blank">Ine Boathouse Village (Funaya)</a> — traditional wooden fishermen's houses built over the sea</div>
+        </div>
+        <div class="dist-row">🚃 Kyoto → Amanohashidate ~2 hr by JR Hashidate express · 100 km north</div>
+      </div>
+    </div>
+
+    <!-- Day 8 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/sensoji.png" alt="Senso-ji Temple Kaminarimon Gate" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#1a2744">8</div>
+          <span class="day-badge-text">Day Eight</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Back to Tokyo — Senso-ji & Asakusa</h3>
+          <p>Saturday, 5 September 2026 (evening shinkansen)</p>
+          <div class="city-tags">
+            <span class="city-tag tag-tokyo" style="background:rgba(26,64,128,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Tokyo</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🏮</span> Attractions</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Ueno+Park+Tokyo" target="_blank">Ueno Park</a> & surrounding area</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple+Tokyo" target="_blank">Senso-ji Temple</a> — Tokyo's oldest temple, magnificent Kaminarimon gate</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Nakamise+Dori+Tokyo" target="_blank">Nakamise Dori</a> — historic covered shopping street with caricature artists</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Kai+Knives+Tokyo" target="_blank">Kai</a> — premium Japanese kitchen knives</div>
+        </div>
+        <div class="dist-row">🚃 Kyoto → Tokyo Shinkansen (Nozomi) ~2h15m · 450 km</div>
+      </div>
+    </div>
+
+    <!-- Day 9 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/skytree.png" alt="Tokyo Skytree illuminated at night" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#1a2744">9</div>
+          <span class="day-badge-text">Day Nine</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Flea Market, Sky Tree & Yurakucho by Night</h3>
+          <p>Sunday, 6 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-tokyo" style="background:rgba(26,64,128,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Tokyo</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🏙</span> Attractions</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Oi+Racecourse+Flea+Market+Tokyo" target="_blank">Oi Racecourse Flea Market</a> — massive vintage, crafts & antiques market</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree" target="_blank">Tokyo Sky Tree</a> (634 m) — tallest tower in Japan, views across the city</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Yurakucho+Tokyo" target="_blank">Yurakucho Park</a> at night — Tokyo's new cultural hub: curated cafes, art & pop-ups</div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Ginza+Tokyo" target="_blank">Ginza</a> — Tokyo's premier upscale shopping district</div>
+        </div>
+        <div class="dist-row">🗺 Flea Market → Sky Tree ~8 km · Sky Tree → Ginza ~10 km</div>
+      </div>
+    </div>
+
+    <!-- Day 10 -->
+    <div class="day-card animate-on-scroll">
+      <div class="day-image-wrap">
+        <img class="day-image" src="images/fuji.png" alt="Mount Fuji reflected in Lake Kawaguchiko" loading="lazy"/>
+        <div class="day-image-overlay"></div>
+        <div class="day-image-badge">
+          <div class="day-badge-num" style="background:#C9A84C">10</div>
+          <span class="day-badge-text">Final Day</span>
+        </div>
+        <div class="day-image-caption">
+          <h3>Mt. Fuji Day Trip + Markets & Departure Prep</h3>
+          <p>Monday, 7 September 2026</p>
+          <div class="city-tags">
+            <span class="city-tag tag-tokyo" style="background:rgba(26,64,128,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Tokyo</span>
+            <span class="city-tag tag-fuji" style="background:rgba(122,80,16,0.35);color:#fff;border-color:rgba(255,255,255,0.2)">Mt. Fuji</span>
+          </div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🗻</span> Mt. Fuji</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Mount+Fuji" target="_blank">Mt. Fuji Day Trip</a> — check the live webcam before you go! (often cloud-covered)</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Shimokitazawa+Tokyo" target="_blank">Shimokitazawa Street</a> — indie bookshops, vintage, live music & the coolest coffee shops</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Oi+Keibajo+Mae+Tokyo" target="_blank">Oi Keibajo Mae area</a></div>
+        </div>
+        <div class="activity-group">
+          <div class="group-label"><span class="group-label-icon">🛍</span> Shopping</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Don+Quijote+Shibuya" target="_blank">Don Quijote Shibuya</a> — legendary everything-store, open till 5am</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Hanazono+Jinja+Shrine+Tokyo" target="_blank">Hanazono Jinja Antique Market, Shinjuku</a></div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Kappabashi+Kitchen+Street+Tokyo" target="_blank">Kappabashi Kitchen Street</a> — Kamaasa Steel knives & professional cookware</div>
+          <div class="act-item"><a href="https://www.google.com/maps/search/?api=1&query=Topologie+Tokyo+Flagship" target="_blank">Topologie Tokyo Flagship</a> — Blue Panther 1F, 6-13-4 Jingumae, Shibuya-ku</div>
+        </div>
+        <div class="dist-row">🚃 Tokyo → Mt. Fuji ~2 hr via Chuo/Fujikyu Line · 120 km</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUGGESTION BOX -->
+  <div class="section-wrap">
+    <div class="section-label">Group Suggestion Box</div>
+  </div>
+  <div class="suggestion-wrap animate-on-scroll">
+    <div class="sugg-card">
+      <div class="sugg-icon">✉️</div>
+      <h3>Add something to the trip!</h3>
+      <p>Have a hidden gem, restaurant, experience, or shopping spot to suggest? Drop it below — everyone in the group can add their ideas here.</p>
+      <div class="sugg-list" id="suggList">
+        <div class="sugg-item">
+          <span class="sugg-item-text">🍣 Tsukiji Outer Market — fresh sushi breakfast, Tokyo (any morning)</span>
+          <span class="sugg-item-meta">Food suggestion</span>
+        </div>
+        <div class="sugg-item">
+          <span class="sugg-item-text">🌿 Philosopher's Path — peaceful canal walk lined with cherry trees, Kyoto</span>
+          <span class="sugg-item-meta">Nature</span>
+        </div>
+        <div class="sugg-item">
+          <span class="sugg-item-text">🥢 Nishiki Market — Kyoto's famous 5-block covered food market, "Kyoto's kitchen"</span>
+          <span class="sugg-item-meta">Food</span>
+        </div>
+        <div class="sugg-item">
+          <span class="sugg-item-text">🎐 Yanaka Ginza — old-Tokyo neighbourhood, pottery, cats & street food (Tokyo)</span>
+          <span class="sugg-item-meta">Culture</span>
+        </div>
+      </div>
+      <div class="input-area">
+        <input type="text" id="suggInput" placeholder="Your suggestion (place, food, experience...)"/>
+        <button class="add-btn" onclick="addSugg()">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">日本 2026</div>
+  Japan Itinerary 2026 · Group of 5 · Made with ❤ for an unforgettable trip
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// Suggestion box
+function addSugg(){
+  const inp = document.getElementById('suggInput');
+  const list = document.getElementById('suggList');
+  const val = inp.value.trim();
+  if(!val) return;
+  const item = document.createElement('div');
+  item.className = 'sugg-item';
+  item.style.borderColor = '#C9A84C';
+  item.innerHTML = `<span class="sugg-item-text">${val}</span><span class="sugg-item-meta" style="color:#C9A84C">Just added ✓</span>`;
+  list.appendChild(item);
+  inp.value = '';
+  item.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+document.getElementById('suggInput').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') addSugg();
+});
+
+// Scroll animations (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// Back to top button
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 600){
+    backTop.classList.add('show');
+  } else {
+    backTop.classList.remove('show');
+  }
+}, {passive:true});
+
+// Parallax hero on scroll
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero-bg');
+  if(hero){
+    const scroll = window.scrollY;
+    hero.style.transform = `scale(1.05) translateY(${scroll * 0.3}px)`;
+  }
+}, {passive:true});
+</script>
+</body>
+</html>

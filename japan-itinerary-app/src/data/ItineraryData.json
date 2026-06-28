@@ -1,0 +1,320 @@
+[
+  {
+    "id": 1,
+    "dayNumber": 1,
+    "title": "Arrival in Tokyo – Digital Art & Old Lanes",
+    "date": "Sunday, 30 August 2026",
+    "image": "/images/teamlab.png",
+    "theme": "tokyo",
+    "tags": ["Tokyo"],
+    "activities": [
+      {
+        "group": "Attractions",
+        "icon": "🎨",
+        "items": [
+          {"name": "TeamLab Planets", "desc": "immersive digital art, book tickets in advance", "link": "https://www.google.com/maps/search/?api=1&query=TeamLab+Planets+Tokyo", "cost": 0},
+          {"name": "Memory Lane (Omoide Yokocho)", "desc": "lantern-lit alley of tiny izakayas", "link": "https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Tokyo", "cost": 0},
+          {"name": "Shinjuku (Cat board area)", "desc": "Explore", "link": "https://www.google.com/maps/search/?api=1&query=Shinjuku+Cat+Board+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Café",
+        "icon": "☕",
+        "items": [
+          {"name": "Ruru Cafe", "link": "https://www.google.com/maps/search/?api=1&query=Ruru+Cafe+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Tokyo Kyukyodo", "desc": "premium Japanese stationery", "link": "https://www.google.com/maps/search/?api=1&query=Tokyo+Kyukyodo", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🗺 Central Tokyo — most spots within 3–5 km of Shinjuku",
+    "suggestions": []
+  },
+  {
+    "id": 2,
+    "dayNumber": 2,
+    "title": "Shibuya, Harajuku & Vintage Marathon",
+    "date": "Monday, 31 August 2026",
+    "image": "/images/shibuya.png",
+    "theme": "tokyo",
+    "tags": ["Tokyo"],
+    "activities": [
+      {
+        "group": "Attractions",
+        "icon": "⛩",
+        "items": [
+          {"name": "Hachiko Statue & Shibuya Crossing Sky Deck", "link": "https://www.google.com/maps/search/?api=1&query=Hachiko+Statue+Shibuya", "cost": 0},
+          {"name": "Meiji Jingu & Yoyogi Park", "desc": "Hachiko Mini Bus", "link": "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Tokyo", "cost": 0},
+          {"name": "Wall of Sake Barrels", "link": "https://www.google.com/maps/search/?api=1&query=Wall+of+Sake+Barrels+Meiji+Jingu", "cost": 0},
+          {"name": "Takeshita Street", "desc": "animal cafes & Harajuku street fashion", "link": "https://www.google.com/maps/search/?api=1&query=Takeshita+Street+Harajuku", "cost": 0}
+        ]
+      },
+      {
+        "group": "Food",
+        "icon": "🍜",
+        "items": [
+          {"name": "Engine Ramen", "desc": "veg-friendly", "link": "https://www.google.com/maps/search/?api=1&query=Engine+Ramen+Tokyo", "cost": 0},
+          {"name": "Wagyu Ramen", "desc": "vegan option", "link": "https://www.google.com/maps/search/?api=1&query=Wagyu+Ramen+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Peak Design", "desc": "camera accessories", "link": "https://www.google.com/maps/search/?api=1&query=Peak+Design+Tokyo", "cost": 0},
+          {"name": "Vintage bags (Shibuya)", "desc": "Paradise Vintage · Komehyo · Amore · QOO", "link": "https://www.google.com/maps/search/?api=1&query=Paradise+Vintage+Tokyo", "cost": 0},
+          {"name": "Ginza vintage", "desc": "Brand Off · 2nd Street", "link": "https://www.google.com/maps/search/?api=1&query=Brand+Off+Ginza", "cost": 0},
+          {"name": "Yodobashi Akiba", "desc": "Japan's largest electronics store", "link": "https://www.google.com/maps/search/?api=1&query=Yodobashi+Akiba+Tokyo", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🗺 Shibuya → Harajuku ~1.2 km walk · Ginza ~6 km by metro",
+    "suggestions": []
+  },
+  {
+    "id": 3,
+    "dayNumber": 3,
+    "title": "Nara Day Trip — Great Buddha & Deer",
+    "date": "Tuesday, 1 September 2026",
+    "image": "/images/nara.png",
+    "theme": "kyoto",
+    "tags": ["Kyoto base", "Nara day trip"],
+    "activities": [
+      {
+        "group": "Nara Highlights",
+        "icon": "🦌",
+        "items": [
+          {"name": "Todaiji Temple", "desc": "iconic Great Buddha (built without nails)", "link": "https://www.google.com/maps/search/?api=1&query=Todaiji+Temple+Nara", "cost": 0},
+          {"name": "Isuien Garden & Yoshikien Garden", "desc": "classic strolling gardens", "link": "https://www.google.com/maps/search/?api=1&query=Isuien+Garden+Nara", "cost": 0},
+          {"name": "Starbucks Nara", "desc": "excellent view of the temple", "link": "https://www.google.com/maps/search/?api=1&query=Starbucks+Nara+Park", "cost": 0},
+          {"name": "Rokumei Café", "desc": "celebrated 1970s café near Nara station", "link": "https://www.google.com/maps/search/?api=1&query=Rokumei+Cafe+Nara", "cost": 0}
+        ]
+      },
+      {
+        "group": "Food & Shopping",
+        "icon": "🌿",
+        "items": [
+          {"name": "Mumokuteki", "desc": "vegan ramen + lifestyle shopping", "link": "https://www.google.com/maps/search/?api=1&query=Mumokuteki+Kyoto", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚃 Kyoto → Nara: Kintetsu Limited Express ~35 min · 45 km",
+    "suggestions": []
+  },
+  {
+    "id": 4,
+    "dayNumber": 4,
+    "title": "Osaka Day Trip — Dotonbori & Vintage Watches",
+    "date": "Wednesday, 2 September 2026",
+    "image": "/images/osaka.png",
+    "theme": "osaka",
+    "tags": ["Osaka"],
+    "note": "🌅 Early morning start",
+    "activities": [
+      {
+        "group": "Attractions",
+        "icon": "🌉",
+        "items": [
+          {"name": "Dotonbori Street", "desc": "Osaka's neon-lit food paradise", "link": "https://www.google.com/maps/search/?api=1&query=Dotonbori+Street+Osaka", "cost": 0}
+        ]
+      },
+      {
+        "group": "Cafés & Dessert",
+        "icon": "☕",
+        "items": [
+          {"name": "Marufuku Coffee", "desc": "historic specialty coffee", "link": "https://www.google.com/maps/search/?api=1&query=Marufuku+Coffee+Osaka", "cost": 0},
+          {"name": "Rikuro's", "desc": "iconic jiggly Japanese cheesecake", "link": "https://www.google.com/maps/search/?api=1&query=Rikuro+Ojisan+no+Mise+Osaka", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Vintage watches — ACCESS", "cost": 0},
+          {"name": "Topologie", "desc": "LUCUA 1100, 3-1-3 Umeda, 2F", "link": "https://www.google.com/maps/search/?api=1&query=Topologie+LUCUA+1100+Osaka", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚃 Kyoto → Osaka: ~15 min shinkansen · 75 km",
+    "suggestions": []
+  },
+  {
+    "id": 5,
+    "dayNumber": 5,
+    "title": "Arashiyama — Bamboo Grove & Hidden Temples",
+    "date": "Thursday, 3 September 2026",
+    "image": "/images/bamboo.png",
+    "theme": "kyoto",
+    "tags": ["Kyoto"],
+    "note": "🌅 Early morning",
+    "activities": [
+      {
+        "group": "Nature & Temples",
+        "icon": "🎋",
+        "items": [
+          {"name": "Arashiyama Bamboo Forest", "desc": "iconic towering grove", "link": "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Forest+Kyoto", "cost": 0},
+          {"name": "Otagi Nenbutsuji Temple", "desc": "1,200 moss-covered Rakan statues", "link": "https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsuji+Temple+Kyoto", "cost": 0},
+          {"name": "Adashino Nenbutsuji Temple", "desc": "8,000 memorial Buddha stones", "link": "https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsuji+Temple+Kyoto", "cost": 0}
+        ]
+      },
+      {
+        "group": "Coffee & Food",
+        "icon": "☕",
+        "items": [
+          {"name": "%Arabica Arashiyama", "desc": "spectacular riverside location", "link": "https://www.google.com/maps/search/?api=1&query=Arabica+Kyoto+Arashiyama", "cost": 0},
+          {"name": "Engine Ramen", "desc": "veg-friendly", "link": "https://www.google.com/maps/search/?api=1&query=Engine+Ramen+Kyoto", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Topologie Kyoto Sanjo", "desc": "CARO MASUNE 1F", "link": "https://www.google.com/maps/search/?api=1&query=Topologie+Kyoto+Sanjo", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🗺 Arashiyama ~12 km west of Kyoto centre · Sagano Line or bus",
+    "suggestions": []
+  },
+  {
+    "id": 6,
+    "dayNumber": 6,
+    "title": "Fushimi Inari, Kiyomizu & Gion at Dusk",
+    "date": "Friday, 4 September 2026",
+    "image": "/images/inari.png",
+    "theme": "kyoto",
+    "tags": ["Kyoto"],
+    "note": "🌅 Arrive Inari by 8am!",
+    "activities": [
+      {
+        "group": "Must-Do",
+        "icon": "⛩",
+        "items": [
+          {"name": "Fushimi Inari Taisha", "desc": "10,000 vermilion torii gates winding up the mountain", "link": "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto", "cost": 0},
+          {"name": "Kiyomizu Temple", "desc": "three water streams", "link": "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto", "cost": 0},
+          {"name": "Ninnenzaka & Sannenzaka", "desc": "stone lanes with 100-year-old Starbucks", "link": "https://www.google.com/maps/search/?api=1&query=Ninnenzaka+Kyoto", "cost": 0},
+          {"name": "Kodaiji Temple", "desc": "bamboo forest section & museum", "link": "https://www.google.com/maps/search/?api=1&query=Kodaiji+Temple+Kyoto", "cost": 0},
+          {"name": "Gion District", "desc": "Hanamikoji Street, best Geisha spotting 5:00–6:30 PM", "link": "https://www.google.com/maps/search/?api=1&query=Gion+District+Kyoto", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚌 Bus 207 from hotel (10–15 min) · Inari → Gion by JR train",
+    "suggestions": []
+  },
+  {
+    "id": 7,
+    "dayNumber": 7,
+    "title": "Amanohashidate & Ine Boathouse Village",
+    "date": "Saturday, 5 September 2026",
+    "image": "/images/amanohashidate.png",
+    "theme": "kyoto",
+    "tags": ["Kyoto day trip"],
+    "activities": [
+      {
+        "group": "Scenic Excursion",
+        "icon": "🌊",
+        "items": [
+          {"name": "Amanohashidate", "desc": "pine-lined sandbar across a lagoon", "link": "https://www.google.com/maps/search/?api=1&query=Amanohashidate+Kyoto", "cost": 0},
+          {"name": "Ine Boathouse Village (Funaya)", "desc": "traditional wooden fishermen's houses", "link": "https://www.google.com/maps/search/?api=1&query=Ine+no+Funaya+Kyoto", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚃 Kyoto → Amanohashidate ~2 hr by JR Hashidate express · 100 km north",
+    "suggestions": []
+  },
+  {
+    "id": 8,
+    "dayNumber": 8,
+    "title": "Back to Tokyo — Senso-ji & Asakusa",
+    "date": "Saturday, 5 September 2026 (evening shinkansen)",
+    "image": "/images/sensoji.png",
+    "theme": "tokyo",
+    "tags": ["Tokyo"],
+    "activities": [
+      {
+        "group": "Attractions",
+        "icon": "🏮",
+        "items": [
+          {"name": "Ueno Park", "desc": "surrounding area", "link": "https://www.google.com/maps/search/?api=1&query=Ueno+Park+Tokyo", "cost": 0},
+          {"name": "Senso-ji Temple", "desc": "magnificent Kaminarimon gate", "link": "https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple+Tokyo", "cost": 0},
+          {"name": "Nakamise Dori", "desc": "historic covered shopping street", "link": "https://www.google.com/maps/search/?api=1&query=Nakamise+Dori+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Kai", "desc": "premium Japanese kitchen knives", "link": "https://www.google.com/maps/search/?api=1&query=Kai+Knives+Tokyo", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚃 Kyoto → Tokyo Shinkansen (Nozomi) ~2h15m · 450 km",
+    "suggestions": []
+  },
+  {
+    "id": 9,
+    "dayNumber": 9,
+    "title": "Flea Market, Sky Tree & Yurakucho by Night",
+    "date": "Sunday, 6 September 2026",
+    "image": "/images/skytree.png",
+    "theme": "tokyo",
+    "tags": ["Tokyo"],
+    "activities": [
+      {
+        "group": "Attractions",
+        "icon": "🏙",
+        "items": [
+          {"name": "Oi Racecourse Flea Market", "desc": "massive vintage, crafts & antiques market", "link": "https://www.google.com/maps/search/?api=1&query=Oi+Racecourse+Flea+Market+Tokyo", "cost": 0},
+          {"name": "Tokyo Sky Tree", "desc": "tallest tower in Japan", "link": "https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree", "cost": 0},
+          {"name": "Yurakucho Park", "desc": "Tokyo's new cultural hub", "link": "https://www.google.com/maps/search/?api=1&query=Yurakucho+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Ginza", "desc": "Tokyo's premier upscale shopping district", "link": "https://www.google.com/maps/search/?api=1&query=Ginza+Tokyo", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🗺 Flea Market → Sky Tree ~8 km · Sky Tree → Ginza ~10 km",
+    "suggestions": []
+  },
+  {
+    "id": 10,
+    "dayNumber": 10,
+    "title": "Mt. Fuji Day Trip + Markets & Departure Prep",
+    "date": "Monday, 7 September 2026",
+    "image": "/images/fuji.png",
+    "theme": "fuji",
+    "tags": ["Tokyo", "Mt. Fuji"],
+    "activities": [
+      {
+        "group": "Mt. Fuji",
+        "icon": "🗻",
+        "items": [
+          {"name": "Mt. Fuji Day Trip", "desc": "check the live webcam before you go!", "link": "https://www.google.com/maps/search/?api=1&query=Mount+Fuji", "cost": 0},
+          {"name": "Shimokitazawa Street", "desc": "indie bookshops, vintage, live music", "link": "https://www.google.com/maps/search/?api=1&query=Shimokitazawa+Tokyo", "cost": 0},
+          {"name": "Oi Keibajo Mae area", "link": "https://www.google.com/maps/search/?api=1&query=Oi+Keibajo+Mae+Tokyo", "cost": 0}
+        ]
+      },
+      {
+        "group": "Shopping",
+        "icon": "🛍",
+        "items": [
+          {"name": "Don Quijote Shibuya", "desc": "legendary everything-store, open till 5am", "link": "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Shibuya", "cost": 0},
+          {"name": "Hanazono Jinja Antique Market, Shinjuku", "link": "https://www.google.com/maps/search/?api=1&query=Hanazono+Jinja+Shrine+Tokyo", "cost": 0},
+          {"name": "Kappabashi Kitchen Street", "desc": "Kamaasa Steel knives", "link": "https://www.google.com/maps/search/?api=1&query=Kappabashi+Kitchen+Street+Tokyo", "cost": 0},
+          {"name": "Topologie Tokyo Flagship", "desc": "Blue Panther 1F", "link": "https://www.google.com/maps/search/?api=1&query=Topologie+Tokyo+Flagship", "cost": 0}
+        ]
+      }
+    ],
+    "distance": "🚃 Tokyo → Mt. Fuji ~2 hr via Chuo/Fujikyu Line · 120 km",
+    "suggestions": []
+  }
+]
