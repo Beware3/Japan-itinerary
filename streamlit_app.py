@@ -414,22 +414,21 @@ for day_idx, day in enumerate(st.session_state.itinerary):
                         st.session_state.editing_item = None
                         st.rerun()
             else:
-                # Render activity as HTML for premium look
+                # Render activity + edit/delete on one row
                 desc_html = f'<span class="activity-desc"> — {item["desc"]}</span>' if "desc" in item and item["desc"] else ""
                 if "link" in item and item["link"]:
                     name_html = f'<a href="{item["link"]}" target="_blank">{item["name"]}</a>'
                 else:
                     name_html = item["name"]
 
-                st.markdown(f"""
-                <div class="activity-item">
-                    <div class="activity-dot"></div>
-                    <div class="activity-name">{name_html}{desc_html}</div>
-                </div>
-                """, unsafe_allow_html=True)
-
-                # Edit / Delete buttons
-                colB, colC, colSpacer = st.columns([1, 1, 8])
+                colA, colB, colC = st.columns([20, 1, 1])
+                with colA:
+                    st.markdown(f"""
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-name">{name_html}{desc_html}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
                 with colB:
                     if st.button("✏️", key=f"edit_btn_{item_key}", help="Edit"):
                         st.session_state.editing_item = item_key
