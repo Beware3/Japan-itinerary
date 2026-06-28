@@ -13,44 +13,51 @@ def get_base64_of_bin_file(bin_file):
 
 st.set_page_config(page_title="Japan Itinerary 2026", page_icon="🌸", layout="centered")
 
-# --- Premium Design System CSS ---
+# --- Premium Light Design System CSS ---
 st.markdown("""
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
     /* ── Reset & Global ─────────────────────────────────── */
     .stApp {
-        background: #0c0f1a;
-        color: #e2e8f0;
+        background: #FAFAF7 !important;
+        color: #1e293b;
         font-family: 'Outfit', sans-serif;
     }
-    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif !important; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif !important; color: #1e293b !important; }
 
     /* ── Scrollbar ────────────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0c0f1a; }
+    ::-webkit-scrollbar-track { background: #f5f5f0; }
     ::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 3px; }
+
+    /* ── CRITICAL: Prevent Streamlit column stacking ── */
+    [data-testid="stHorizontalBlock"] {
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 0.25rem !important;
+    }
 
     /* ── Hero Banner ──────────────────────────────────── */
     .hero-wrap {
         position: relative;
         text-align: center;
-        padding: 4rem 2rem 3.5rem;
+        padding: 3.5rem 2rem 3rem;
         border-radius: 20px;
         overflow: hidden;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
     .hero-wrap::before {
         content: '';
         position: absolute; inset: 0;
-        background: linear-gradient(135deg, #111827 0%, #1a1040 40%, #2d1b4e 70%, #111827 100%);
+        background: linear-gradient(135deg, #1e293b 0%, #334155 40%, #475569 70%, #1e293b 100%);
         z-index: 0;
     }
     .hero-wrap::after {
         content: '';
         position: absolute; inset: 0;
-        background: radial-gradient(circle at 70% 30%, rgba(200, 16, 46, 0.15) 0%, transparent 60%),
-                    radial-gradient(circle at 30% 80%, rgba(201, 168, 76, 0.1) 0%, transparent 50%);
+        background: radial-gradient(circle at 70% 30%, rgba(200, 16, 46, 0.12) 0%, transparent 60%),
+                    radial-gradient(circle at 30% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%);
         z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; }
@@ -72,7 +79,7 @@ st.markdown("""
         letter-spacing: -0.5px;
     }
     .hero-dates {
-        color: rgba(255,255,255,0.55);
+        color: rgba(255,255,255,0.6);
         font-size: 1rem;
         letter-spacing: 3px;
         font-weight: 300;
@@ -88,37 +95,35 @@ st.markdown("""
     .stat-row {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
+        gap: 1.25rem;
+        margin-bottom: 2rem;
         flex-wrap: wrap;
     }
     .stat-card {
-        background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-        border: 1px solid rgba(255,255,255,0.06);
+        background: #fff;
+        border: 1px solid #e5e7eb;
         border-radius: 16px;
         padding: 1.25rem 2rem;
         text-align: center;
-        min-width: 140px;
-        backdrop-filter: blur(8px);
-        transition: transform 0.2s, border-color 0.2s;
+        min-width: 120px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        transition: transform 0.2s, box-shadow 0.2s;
     }
-    .stat-card:hover { transform: translateY(-2px); border-color: rgba(201,168,76,0.25); }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     .stat-val {
         font-size: 2rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #C9A84C, #e8d5a3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #C8102E;
         line-height: 1.2;
     }
-    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+    .stat-label { font-size: 0.75rem; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
     /* ── Section Title ────────────────────────────────── */
     .section-title {
         font-family: 'Outfit', sans-serif;
         font-size: 1.5rem;
         font-weight: 600;
-        color: #fff;
+        color: #1e293b !important;
         margin-bottom: 1.5rem;
         display: flex;
         align-items: center;
@@ -128,7 +133,7 @@ st.markdown("""
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+        background: linear-gradient(90deg, #C8102E33, transparent);
     }
 
     /* ── Day Card Header ─────────────────────────────── */
@@ -136,10 +141,11 @@ st.markdown("""
         position: relative;
         border-radius: 16px;
         overflow: hidden;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
         min-height: 140px;
         display: flex;
         align-items: flex-end;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .day-header-bg {
         position: absolute; inset: 0;
@@ -148,7 +154,7 @@ st.markdown("""
     }
     .day-header-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(12,15,26,0.95) 0%, rgba(12,15,26,0.5) 50%, rgba(12,15,26,0.3) 100%);
+        background: linear-gradient(to top, rgba(30,41,59,0.92) 0%, rgba(30,41,59,0.4) 50%, rgba(30,41,59,0.15) 100%);
     }
     .day-header-content {
         position: relative;
@@ -167,70 +173,59 @@ st.markdown("""
     .day-title {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #fff;
+        color: #fff !important;
         margin: 0;
         line-height: 1.3;
     }
     .day-date {
         font-size: 0.85rem;
-        color: rgba(255,255,255,0.5);
+        color: rgba(255,255,255,0.6);
         font-weight: 300;
         margin-top: 2px;
-    }
-
-    /* ── Day Body Container ───────────────────────────── */
-    .day-body {
-        background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-        border: 1px solid rgba(255,255,255,0.05);
-        border-top: none;
-        border-radius: 0 0 16px 16px;
-        padding: 1.25rem 1.5rem;
-        margin-top: -10px;
-        margin-bottom: 2rem;
     }
 
     /* ── Activity Group Label ─────────────────────────── */
     .group-label {
         font-size: 0.9rem;
         font-weight: 600;
-        color: #C9A84C;
+        color: #C8102E;
         letter-spacing: 1px;
         margin: 1rem 0 0.5rem;
         padding-bottom: 0.4rem;
-        border-bottom: 1px solid rgba(201,168,76,0.15);
+        border-bottom: 1px solid #fce4e4;
     }
 
     /* ── Activity Item ────────────────────────────────── */
     .activity-item {
         display: flex;
         align-items: center;
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 0.5rem;
         border-radius: 10px;
-        margin: 4px 0;
+        margin: 2px 0;
         transition: background 0.15s;
     }
-    .activity-item:hover { background: rgba(255,255,255,0.03); }
+    .activity-item:hover { background: #f8f5f0; }
     .activity-dot {
         width: 6px; height: 6px;
         border-radius: 50%;
         background: #C8102E;
-        margin-right: 0.75rem;
+        margin-right: 0.6rem;
         flex-shrink: 0;
     }
     .activity-name {
         flex: 1;
-        color: #e2e8f0;
+        color: #334155;
         font-size: 0.95rem;
     }
     .activity-name a {
-        color: #93c5fd;
+        color: #2563eb;
         text-decoration: none;
-        border-bottom: 1px solid rgba(147,197,253,0.2);
+        border-bottom: 1px solid rgba(37,99,235,0.2);
         transition: border-color 0.2s;
     }
-    .activity-name a:hover { border-color: #93c5fd; }
+    .activity-name a:hover { border-color: #2563eb; }
     .activity-desc {
-        color: rgba(255,255,255,0.4);
+        color: #94a3b8;
         font-size: 0.85rem;
         margin-left: 0.25rem;
     }
@@ -240,21 +235,12 @@ st.markdown("""
         display: flex;
         align-items: center;
         padding: 0.6rem 0.75rem;
-        background: rgba(255,255,255,0.02);
+        background: #fff;
         border-radius: 8px;
         margin: 4px 0;
         border-left: 3px solid #C9A84C;
     }
-    .sugg-text { flex: 1; color: #cbd5e1; font-size: 0.9rem; }
-
-    /* ── General Suggestions Section ──────────────────── */
-    .gen-sugg-wrap {
-        background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 16px;
-        padding: 1.5rem;
-        margin-top: 1rem;
-    }
+    .sugg-text { flex: 1; color: #475569; font-size: 0.9rem; }
 
     /* ── Streamlit Widget Overrides ───────────────────── */
     .stButton > button {
@@ -262,8 +248,8 @@ st.markdown("""
         font-family: 'Outfit', sans-serif !important;
         font-weight: 500 !important;
         transition: all 0.2s !important;
-        min-height: 44px !important;
-        min-width: 44px !important;
+        min-height: 40px !important;
+        min-width: 40px !important;
     }
     .stTextInput > div > div > input {
         border-radius: 10px !important;
@@ -273,71 +259,49 @@ st.markdown("""
     }
     .stExpander {
         border-radius: 12px !important;
-        border-color: rgba(255,255,255,0.06) !important;
-    }
-    div[data-testid="stMetric"] {
-        background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        padding: 0.75rem;
-        text-align: center;
-    }
-    div[data-testid="stMetricValue"] {
-        background: linear-gradient(135deg, #C9A84C, #e8d5a3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        border-color: #e5e7eb !important;
+        background: #fff !important;
     }
 
     /* ── Footer ───────────────────────────────────────── */
     .footer {
         text-align: center;
         padding: 3rem 0 2rem;
-        color: rgba(255,255,255,0.2);
+        color: #cbd5e1;
         font-size: 0.8rem;
         letter-spacing: 2px;
     }
 
     /* ── Mobile Responsive ────────────────────────────── */
     @media (max-width: 768px) {
-        /* Hero */
         .hero-wrap { padding: 2.5rem 1rem 2rem; border-radius: 14px; margin-bottom: 1.5rem; }
         .hero-title { font-size: 2rem !important; }
         .hero-jp { font-size: 0.8rem; letter-spacing: 4px; }
         .hero-dates { font-size: 0.8rem; letter-spacing: 2px; }
 
-        /* Stats */
         .stat-row { gap: 0.75rem; margin-bottom: 1.5rem; }
         .stat-card { min-width: 80px; padding: 0.75rem 1rem; border-radius: 12px; }
         .stat-val { font-size: 1.5rem; }
         .stat-label { font-size: 0.65rem; letter-spacing: 1px; }
 
-        /* Section title */
         .section-title { font-size: 1.2rem; margin-bottom: 1rem; }
 
-        /* Day header */
-        .day-header { min-height: 110px; border-radius: 12px; }
-        .day-header-content { padding: 1rem; }
-        .day-title { font-size: 1.15rem; }
+        .day-header { min-height: 100px; border-radius: 12px; }
+        .day-header-content { padding: 0.75rem 1rem; }
+        .day-title { font-size: 1.1rem; }
         .day-number { font-size: 0.6rem; letter-spacing: 2px; }
-        .day-date { font-size: 0.75rem; }
+        .day-date { font-size: 0.7rem; }
 
-        /* Activities */
         .group-label { font-size: 0.8rem; margin: 0.75rem 0 0.35rem; }
-        .activity-item { padding: 0.4rem 0.25rem; }
-        .activity-name { font-size: 0.85rem; }
-        .activity-desc { font-size: 0.75rem; display: block; margin-left: 0; margin-top: 2px; }
-        .activity-dot { width: 5px; height: 5px; margin-right: 0.5rem; }
+        .activity-item { padding: 0.35rem 0.15rem; }
+        .activity-name { font-size: 0.82rem; }
+        .activity-desc { font-size: 0.72rem; }
+        .activity-dot { width: 5px; height: 5px; margin-right: 0.4rem; }
 
-        /* Buttons — larger touch targets */
-        .stButton > button { min-height: 44px !important; min-width: 44px !important; padding: 0.4rem 0.6rem !important; font-size: 1.1rem !important; }
+        .stButton > button { min-height: 38px !important; min-width: 38px !important; padding: 0.25rem 0.5rem !important; font-size: 0.9rem !important; }
 
-        /* Streamlit sidebar hide on mobile */
         section[data-testid="stSidebar"] { display: none !important; }
-
-        /* Reduce main content padding */
         .block-container { padding: 0.5rem 0.75rem !important; }
-
-        /* Footer */
         .footer { padding: 2rem 0 1.5rem; font-size: 0.7rem; }
     }
 
@@ -347,7 +311,7 @@ st.markdown("""
         .stat-card { min-width: 70px; padding: 0.6rem 0.75rem; }
         .stat-val { font-size: 1.25rem; }
         .day-title { font-size: 1rem; }
-        .activity-name { font-size: 0.8rem; }
+        .activity-name { font-size: 0.78rem; }
     }
 </style>
 """, unsafe_allow_html=True)
