@@ -11,10 +11,11 @@ def get_base64_of_bin_file(bin_file):
     return ""
 
 
-st.set_page_config(page_title="Japan Itinerary 2026", page_icon="🌸", layout="wide")
+st.set_page_config(page_title="Japan Itinerary 2026", page_icon="🌸", layout="centered")
 
 # --- Premium Design System CSS ---
 st.markdown("""
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
     /* ── Reset & Global ─────────────────────────────────── */
@@ -261,10 +262,14 @@ st.markdown("""
         font-family: 'Outfit', sans-serif !important;
         font-weight: 500 !important;
         transition: all 0.2s !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
     }
     .stTextInput > div > div > input {
         border-radius: 10px !important;
         font-family: 'Outfit', sans-serif !important;
+        min-height: 44px !important;
+        font-size: 16px !important;
     }
     .stExpander {
         border-radius: 12px !important;
@@ -290,6 +295,59 @@ st.markdown("""
         color: rgba(255,255,255,0.2);
         font-size: 0.8rem;
         letter-spacing: 2px;
+    }
+
+    /* ── Mobile Responsive ────────────────────────────── */
+    @media (max-width: 768px) {
+        /* Hero */
+        .hero-wrap { padding: 2.5rem 1rem 2rem; border-radius: 14px; margin-bottom: 1.5rem; }
+        .hero-title { font-size: 2rem !important; }
+        .hero-jp { font-size: 0.8rem; letter-spacing: 4px; }
+        .hero-dates { font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* Stats */
+        .stat-row { gap: 0.75rem; margin-bottom: 1.5rem; }
+        .stat-card { min-width: 80px; padding: 0.75rem 1rem; border-radius: 12px; }
+        .stat-val { font-size: 1.5rem; }
+        .stat-label { font-size: 0.65rem; letter-spacing: 1px; }
+
+        /* Section title */
+        .section-title { font-size: 1.2rem; margin-bottom: 1rem; }
+
+        /* Day header */
+        .day-header { min-height: 110px; border-radius: 12px; }
+        .day-header-content { padding: 1rem; }
+        .day-title { font-size: 1.15rem; }
+        .day-number { font-size: 0.6rem; letter-spacing: 2px; }
+        .day-date { font-size: 0.75rem; }
+
+        /* Activities */
+        .group-label { font-size: 0.8rem; margin: 0.75rem 0 0.35rem; }
+        .activity-item { padding: 0.4rem 0.25rem; }
+        .activity-name { font-size: 0.85rem; }
+        .activity-desc { font-size: 0.75rem; display: block; margin-left: 0; margin-top: 2px; }
+        .activity-dot { width: 5px; height: 5px; margin-right: 0.5rem; }
+
+        /* Buttons — larger touch targets */
+        .stButton > button { min-height: 44px !important; min-width: 44px !important; padding: 0.4rem 0.6rem !important; font-size: 1.1rem !important; }
+
+        /* Streamlit sidebar hide on mobile */
+        section[data-testid="stSidebar"] { display: none !important; }
+
+        /* Reduce main content padding */
+        .block-container { padding: 0.5rem 0.75rem !important; }
+
+        /* Footer */
+        .footer { padding: 2rem 0 1.5rem; font-size: 0.7rem; }
+    }
+
+    @media (max-width: 400px) {
+        .hero-title { font-size: 1.6rem !important; }
+        .hero-wrap { padding: 2rem 0.75rem 1.5rem; }
+        .stat-card { min-width: 70px; padding: 0.6rem 0.75rem; }
+        .stat-val { font-size: 1.25rem; }
+        .day-title { font-size: 1rem; }
+        .activity-name { font-size: 0.8rem; }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -421,7 +479,7 @@ for day_idx, day in enumerate(st.session_state.itinerary):
                 else:
                     name_html = item["name"]
 
-                colA, colB, colC = st.columns([20, 1, 1])
+                colA, colB, colC = st.columns([8, 1, 1])
                 with colA:
                     st.markdown(f"""
                     <div class="activity-item">
