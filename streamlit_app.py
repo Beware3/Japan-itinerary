@@ -1,7 +1,15 @@
-# pyrefly: ignore [missing-import]
 import streamlit as st
 import json
 import os
+import base64
+
+def get_base64_of_bin_file(bin_file):
+    if os.path.exists(bin_file):
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+    return ""
+
 
 st.set_page_config(page_title="Japan Itinerary 2026", page_icon="🌸", layout="centered")
 
@@ -74,13 +82,18 @@ for day_idx, day in enumerate(st.session_state.itinerary):
     if day_id not in st.session_state.suggestions:
         st.session_state.suggestions[day_id] = []
         
-    day_col1, day_col2 = st.columns([2, 1])
-    
-    with day_col1:
+    bg_style = ""
+    if "image" in day:
+        img_path = day["image"].lstrip("/")
+        base64_img = get_base64_of_bin_file(img_path)
+        if base64_img:
+            bg_style = f"background: linear-gradient(rgba(17, 24, 39, 0.65), rgba(17, 24, 39, 0.85)), url('data:image/png;base64,{base64_img}') center/cover;"
+
+    with st.container():
         st.markdown(f"""
-        <div class="day-card">
-            <h3>Day {day['dayNumber']}: {day['title']}</h3>
-            <p><strong>{day['date']}</strong></p>
+        <div class="day-card" style="{bg_style}">
+            <h3 style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Day {day['dayNumber']}: {day['title']}</h3>
+            <p style="color: #FDF6EC; text-shadow: 0 1px 2px rgba(0,0,0,0.8);"><strong>{day['date']}</strong></p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -178,12 +191,6 @@ for day_idx, day in enumerate(st.session_state.itinerary):
                     st.session_state.last_notification = f"New suggestion for Day {day['dayNumber']} by {sugg_name or 'Anonymous'}!"
                     st.rerun()
                     
-    with day_col2:
-        if "image" in day:
-            img_path = day["image"].lstrip("/")
-            if os.path.exists(img_path):
-                st.image(img_path, use_container_width=True)
-                
     st.divider()
 
 st.header("General Suggestions")
