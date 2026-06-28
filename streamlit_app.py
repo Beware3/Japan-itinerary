@@ -44,14 +44,14 @@ st.markdown("""
     .hero-wrap::before {
         content: '';
         position: absolute; inset: 0;
-        background-size: cover;
-        background-position: center;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 40%, #475569 70%, #1e293b 100%);
         z-index: 0;
     }
     .hero-wrap::after {
         content: '';
         position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(30,41,59,0.85) 0%, rgba(30,41,59,0.5) 50%, rgba(30,41,59,0.35) 100%);
+        background: radial-gradient(circle at 70% 30%, rgba(200, 16, 46, 0.12) 0%, transparent 60%),
+                    radial-gradient(circle at 30% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%);
         z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; }
@@ -311,12 +311,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Hero ──────────────────────────────────────────────
-hero_img_path = "images/hero_banner.png"
-hero_b64 = get_base64_of_bin_file(hero_img_path)
-hero_bg_css = f"background-image: url('data:image/png;base64,{hero_b64}');" if hero_b64 else ""
-
-st.markdown(f"""
-<div class="hero-wrap" style="{hero_bg_css} background-size: cover; background-position: center;">
+st.markdown("""
+<div class="hero-wrap">
     <div class="hero-content">
         <div class="hero-jp">日本旅行 二〇二六</div>
         <div class="hero-title">Japan 🌸 Itinerary</div>
