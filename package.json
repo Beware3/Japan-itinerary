@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@pegasusheavy/linkedin-mcp": "^1.4.0"
+  }
+}
