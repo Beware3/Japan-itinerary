@@ -84,6 +84,24 @@ for day_idx, day in enumerate(st.session_state.itinerary):
         </div>
         """, unsafe_allow_html=True)
         
+        if st.session_state.editing_item == f"edit_day_{day_id}":
+            with st.container():
+                new_title = st.text_input("Title", value=day['title'], key=f"edit_title_{day_id}")
+                new_date = st.text_input("Date", value=day['date'], key=f"edit_date_{day_id}")
+                c1, c2 = st.columns(2)
+                if c1.button("Save", key=f"save_day_{day_id}"):
+                    st.session_state.itinerary[day_idx]["title"] = new_title
+                    st.session_state.itinerary[day_idx]["date"] = new_date
+                    st.session_state.editing_item = None
+                    st.rerun()
+                if c2.button("Cancel", key=f"cancel_day_{day_id}"):
+                    st.session_state.editing_item = None
+                    st.rerun()
+        else:
+            if st.button("✏️ Edit Heading", key=f"edit_btn_day_{day_id}"):
+                st.session_state.editing_item = f"edit_day_{day_id}"
+                st.rerun()
+        
         for group_idx, group in enumerate(day["activities"]):
             st.subheader(f"{group['icon']} {group['group']}")
             for item_idx, item in enumerate(group["items"]):
