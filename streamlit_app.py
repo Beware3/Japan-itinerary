@@ -44,20 +44,21 @@ st.divider()
 
 # Load Data
 data_file = "japan-itinerary-app/src/data/ItineraryData.json"
-if os.path.exists(data_file):
-    with open(data_file, "r", encoding="utf-8") as f:
-        itinerary = json.load(f)
-else:
-    st.error("Itinerary data not found.")
-    st.stop()
+if "itinerary" not in st.session_state:
+    if os.path.exists(data_file):
+        with open(data_file, "r", encoding="utf-8") as f:
+            st.session_state.itinerary = json.load(f)
+    else:
+        st.error("Itinerary data not found.")
+        st.stop()
 
-# State for costs and suggestions
-if "costs" not in st.session_state:
-    st.session_state.costs = {}
+# State for suggestions and editing
 if "suggestions" not in st.session_state:
     st.session_state.suggestions = {}
 if "global_suggestions" not in st.session_state:
     st.session_state.global_suggestions = []
+if "editing_item" not in st.session_state:
+    st.session_state.editing_item = None
 if "last_notification" not in st.session_state:
     st.session_state.last_notification = None
 
@@ -68,7 +69,7 @@ if st.session_state.last_notification:
 
 st.header("Day-by-Day Itinerary")
 
-for day in itinerary:
+for day_idx, day in enumerate(st.session_state.itinerary):
     day_id = str(day["id"])
     if day_id not in st.session_state.suggestions:
         st.session_state.suggestions[day_id] = []
@@ -83,28 +84,58 @@ for day in itinerary:
         </div>
         """, unsafe_allow_html=True)
         
-        daily_total = 0
-        
         for group_idx, group in enumerate(day["activities"]):
             st.subheader(f"{group['icon']} {group['group']}")
             for item_idx, item in enumerate(group["items"]):
-                cost_key = f"cost_{day_id}_{group_idx}_{item_idx}"
-                if cost_key not in st.session_state.costs:
-                    st.session_state.costs[cost_key] = item.get("cost", 0)
-                    
-                colA, colB = st.columns([3, 1])
-                with colA:
-                    desc = f" — {item['desc']}" if "desc" in item else ""
-                    if "link" in item:
-                        st.markdown(f"- [{item['name']}]({item['link']}){desc}")
-                    else:
-                        st.markdown(f"- {item['name']}{desc}")
-                with colB:
-                    new_cost = st.number_input("Cost (¥)", value=st.session_state.costs[cost_key], key=f"input_{cost_key}", label_visibility="collapsed")
-                    st.session_state.costs[cost_key] = new_cost
-                    daily_total += new_cost
-                    
-        st.info(f"**Daily Total: ¥{daily_total}**")
+                item_key = f"{day_id}_{group_idx}_{item_idx}"
+                
+                if st.session_state.editing_item == item_key:
+                    with st.container():
+                        new_name = st.text_input("Name", value=item['name'], key=f"edit_name_{item_key}")
+                        new_desc = st.text_input("Description", value=item.get('desc', ''), key=f"edit_desc_{item_key}")
+                        new_link = st.text_input("Link", value=item.get('link', ''), key=f"edit_link_{item_key}")
+                        
+                        c1, c2 = st.columns(2)
+                        if c1.button("Save", key=f"save_{item_key}"):
+                            st.session_state.itinerary[day_idx]["activities"][group_idx]["items"][item_idx] = {
+                                "name": new_name,
+                                "desc": new_desc,
+                                "link": new_link
+                            }
+                            st.session_state.editing_item = None
+                            st.rerun()
+                        if c2.button("Cancel", key=f"cancel_{item_key}"):
+                            st.session_state.editing_item = None
+                            st.rerun()
+                else:
+                    colA, colB, colC = st.columns([6, 1, 1])
+                    with colA:
+                        desc = f" — {item['desc']}" if "desc" in item and item['desc'] else ""
+                        if "link" in item and item['link']:
+                            st.markdown(f"- [{item['name']}]({item['link']}){desc}")
+                        else:
+                            st.markdown(f"- {item['name']}{desc}")
+                    with colB:
+                        if st.button("✏️", key=f"edit_btn_{item_key}", help="Edit"):
+                            st.session_state.editing_item = item_key
+                            st.rerun()
+                    with colC:
+                        if st.button("❌", key=f"del_item_{item_key}", help="Delete"):
+                            st.session_state.itinerary[day_idx]["activities"][group_idx]["items"].pop(item_idx)
+                            st.rerun()
+                            
+            with st.expander(f"+ Add to {group['group']}"):
+                add_name = st.text_input("Name", key=f"add_name_{day_id}_{group_idx}")
+                add_desc = st.text_input("Description", key=f"add_desc_{day_id}_{group_idx}")
+                add_link = st.text_input("Link (Google Maps etc)", key=f"add_link_{day_id}_{group_idx}")
+                if st.button("Add Activity", key=f"add_btn_{day_id}_{group_idx}"):
+                    if add_name:
+                        st.session_state.itinerary[day_idx]["activities"][group_idx]["items"].append({
+                            "name": add_name,
+                            "desc": add_desc,
+                            "link": add_link
+                        })
+                        st.rerun()
         
         with st.expander(f"Suggestions for Day {day['dayNumber']}"):
             for idx, s in enumerate(st.session_state.suggestions[day_id]):
