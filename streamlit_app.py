@@ -58,6 +58,13 @@ if "suggestions" not in st.session_state:
     st.session_state.suggestions = {}
 if "global_suggestions" not in st.session_state:
     st.session_state.global_suggestions = []
+if "last_notification" not in st.session_state:
+    st.session_state.last_notification = None
+
+if st.session_state.last_notification:
+    st.toast(st.session_state.last_notification, icon="🔔")
+    st.success(f"🔔 {st.session_state.last_notification}")
+    st.session_state.last_notification = None
 
 st.header("Day-by-Day Itinerary")
 
@@ -100,10 +107,17 @@ for day in itinerary:
         for s in st.session_state.suggestions[day_id]:
             st.write(f"- {s}")
         
-        new_sugg = st.text_input("Add suggestion", key=f"sugg_input_{day_id}")
+        col_s1, col_s2 = st.columns([1, 3])
+        with col_s1:
+            sugg_name = st.text_input("Your Name", key=f"sugg_name_{day_id}")
+        with col_s2:
+            new_sugg = st.text_input("Add suggestion", key=f"sugg_input_{day_id}")
+            
         if st.button("Add", key=f"sugg_btn_{day_id}"):
             if new_sugg:
-                st.session_state.suggestions[day_id].append(new_sugg)
+                display_sugg = f"**{sugg_name or 'Anonymous'}**: {new_sugg}"
+                st.session_state.suggestions[day_id].append(display_sugg)
+                st.session_state.last_notification = f"New suggestion for Day {day['dayNumber']} by {sugg_name or 'Anonymous'}!"
                 st.rerun()
                 
     st.divider()
@@ -112,8 +126,15 @@ st.header("General Suggestions")
 for s in st.session_state.global_suggestions:
     st.write(f"✉️ {s}")
     
-global_sugg = st.text_input("Add a general trip suggestion:")
+col_g1, col_g2 = st.columns([1, 3])
+with col_g1:
+    global_name = st.text_input("Your Name", key="global_name")
+with col_g2:
+    global_sugg = st.text_input("Add a general trip suggestion:")
+    
 if st.button("Add General Suggestion"):
     if global_sugg:
-        st.session_state.global_suggestions.append(global_sugg)
+        display_sugg = f"**{global_name or 'Anonymous'}**: {global_sugg}"
+        st.session_state.global_suggestions.append(display_sugg)
+        st.session_state.last_notification = f"New general suggestion by {global_name or 'Anonymous'}!"
         st.rerun()
