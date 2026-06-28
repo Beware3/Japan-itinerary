@@ -104,8 +104,14 @@ for day in itinerary:
     st.info(f"**Daily Total: ¥{daily_total}**")
     
     with st.expander(f"Suggestions for Day {day['dayNumber']}"):
-        for s in st.session_state.suggestions[day_id]:
-            st.write(f"- {s}")
+        for idx, s in enumerate(st.session_state.suggestions[day_id]):
+            col_list1, col_list2 = st.columns([5, 1])
+            with col_list1:
+                st.write(f"- {s}")
+            with col_list2:
+                if st.button("❌", key=f"del_sugg_{day_id}_{idx}", help="Delete suggestion"):
+                    st.session_state.suggestions[day_id].pop(idx)
+                    st.rerun()
         
         col_s1, col_s2 = st.columns([1, 3])
         with col_s1:
@@ -123,8 +129,14 @@ for day in itinerary:
     st.divider()
 
 st.header("General Suggestions")
-for s in st.session_state.global_suggestions:
-    st.write(f"✉️ {s}")
+for idx, s in enumerate(st.session_state.global_suggestions):
+    col_g_list1, col_g_list2 = st.columns([5, 1])
+    with col_g_list1:
+        st.write(f"✉️ {s}")
+    with col_g_list2:
+        if st.button("❌", key=f"del_global_{idx}", help="Delete suggestion"):
+            st.session_state.global_suggestions.pop(idx)
+            st.rerun()
     
 col_g1, col_g2 = st.columns([1, 3])
 with col_g1:
