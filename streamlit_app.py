@@ -31,12 +31,6 @@ st.markdown("""
     ::-webkit-scrollbar-track { background: #f5f5f0; }
     ::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 3px; }
 
-    /* ── CRITICAL: Prevent Streamlit column stacking ── */
-    [data-testid="stHorizontalBlock"] {
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        gap: 0.25rem !important;
-    }
 
     /* ── Hero Banner ──────────────────────────────────── */
     .hero-wrap {
