@@ -302,21 +302,14 @@ st.markdown("""
         .activity-desc { font-size: 0.72rem; }
         .activity-dot { width: 5px; height: 5px; margin-right: 0.4rem; }
 
-        /* Force activity row to wrap as a row, not stack vertically */
-        [data-testid="stHorizontalBlock"]:has(.activity-item) {
+        /* Force nested activity rows to always wrap as a row, never stack */
+        [data-testid="column"] [data-testid="stHorizontalBlock"] {
             flex-direction: row !important;
-            flex-wrap: wrap !important;
-            gap: 0.5rem !important;
+            flex-wrap: nowrap !important;
+            gap: 0.25rem !important;
             align-items: center !important;
         }
-        /* Make the activity text full width */
-        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(1) {
-            min-width: 100% !important;
-            width: 100% !important;
-        }
-        /* Keep buttons auto width side-by-side */
-        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(2),
-        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(3) {
+        [data-testid="column"] [data-testid="stHorizontalBlock"] > [data-testid="column"] {
             min-width: auto !important;
             width: auto !important;
             flex: 0 0 auto !important;
