@@ -35,10 +35,9 @@ st.markdown("""
 
     /* ── Activity Row Layout ── */
     @media (min-width: 769px) {
-        [data-testid="stHorizontalBlock"]:has(.activity-item) {
+        div[data-testid="stHorizontalBlock"][style*="gap: 1rem"] {
             flex-wrap: nowrap !important;
             align-items: center !important;
-            gap: 0.25rem !important;
         }
     }
 
@@ -302,17 +301,26 @@ st.markdown("""
         .activity-desc { font-size: 0.72rem; }
         .activity-dot { width: 5px; height: 5px; margin-right: 0.4rem; }
 
-        /* Force nested activity rows to always wrap as a row, never stack */
-        [data-testid="column"] [data-testid="stHorizontalBlock"] {
+        /* Force activity rows (marked by gap="medium" -> gap: 1rem) to wrap nicely */
+        div[data-testid="stHorizontalBlock"][style*="gap: 1rem"] {
             flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            gap: 0.25rem !important;
+            flex-wrap: wrap !important;
             align-items: center !important;
         }
-        [data-testid="column"] [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+        /* Make the activity text full width */
+        div[data-testid="stHorizontalBlock"][style*="gap: 1rem"] > div[data-testid="column"]:nth-child(1) {
+            min-width: 100% !important;
+            width: 100% !important;
+        }
+        /* Make the button column row-based */
+        div[data-testid="stHorizontalBlock"][style*="gap: 1rem"] > div[data-testid="column"]:nth-child(2) {
             min-width: auto !important;
             width: auto !important;
             flex: 0 0 auto !important;
+        }
+        div[data-testid="stHorizontalBlock"][style*="gap: 1rem"] > div[data-testid="column"]:nth-child(2) div[data-testid="stVerticalBlock"] {
+            flex-direction: row !important;
+            gap: 0.5rem !important;
         }
 
         .stButton > button { min-height: 38px !important; min-width: 38px !important; padding: 0.25rem 0.5rem !important; font-size: 0.9rem !important; }
