@@ -33,11 +33,13 @@ st.markdown("""
     ::-webkit-scrollbar-thumb { background: #C8102E; border-radius: 3px; }
 
 
-    /* ── CRITICAL: Prevent Streamlit column stacking ── */
-    [data-testid="stHorizontalBlock"] {
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        gap: 0.25rem !important;
+    /* ── Activity Row Layout ── */
+    @media (min-width: 769px) {
+        [data-testid="stHorizontalBlock"]:has(.activity-item) {
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            gap: 0.25rem !important;
+        }
     }
 
     /* ── Hero Banner ──────────────────────────────────── */
@@ -299,6 +301,26 @@ st.markdown("""
         .activity-name { font-size: 0.82rem; }
         .activity-desc { font-size: 0.72rem; }
         .activity-dot { width: 5px; height: 5px; margin-right: 0.4rem; }
+
+        /* Force activity row to wrap as a row, not stack vertically */
+        [data-testid="stHorizontalBlock"]:has(.activity-item) {
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 0.5rem !important;
+            align-items: center !important;
+        }
+        /* Make the activity text full width */
+        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(1) {
+            min-width: 100% !important;
+            width: 100% !important;
+        }
+        /* Keep buttons auto width side-by-side */
+        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(2),
+        [data-testid="stHorizontalBlock"]:has(.activity-item) > [data-testid="column"]:nth-child(3) {
+            min-width: auto !important;
+            width: auto !important;
+            flex: 0 0 auto !important;
+        }
 
         .stButton > button { min-height: 38px !important; min-width: 38px !important; padding: 0.25rem 0.5rem !important; font-size: 0.9rem !important; }
 
